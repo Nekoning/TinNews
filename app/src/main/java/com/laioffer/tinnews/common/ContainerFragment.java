@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.laioffer.tinnews.Profile.TinProfileFragment;
 import com.laioffer.tinnews.R;
 import com.laioffer.tinnews.save.SavedNewsFragment;
 import com.laioffer.tinnews.tin.TinGalleryFragment;
@@ -88,7 +89,7 @@ public class ContainerFragment extends TinBasicFragment {
             case SAVE_PAGE:
                 return SavedNewsFragment.newInstance();
             case PROFILE_PAGE:
-                return null;
+                return TinProfileFragment.newInstance();
             default:
                 throw new IndexOutOfBoundsException();
         }
