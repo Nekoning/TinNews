@@ -14,12 +14,16 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void onCacheCleared() {
-
+        if (view != null) {
+            view.onCacheCleared();
+        }
     }
 
     @Override
     public View.OnClickListener getCacheClearListener() {
-        return null;
+        return view -> {
+            model.deleteAllNewsCache();
+        };
     }
 
     @Override
@@ -40,6 +44,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     @Override
     public void onViewAttached(ProfileContract.View view) {
         this.view = view;
+        this.view.setView();
     }
 
     @Override

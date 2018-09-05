@@ -10,6 +10,7 @@ import com.laioffer.tinnews.common.BaseViewModel;
 
 public class TitleViewModel extends BaseViewModel<TitleViewModel.TitleViewModelHolder> {
     private String title;
+
     public TitleViewModel(String title) {
         super(R.layout.title_layout);
         this.title = title;

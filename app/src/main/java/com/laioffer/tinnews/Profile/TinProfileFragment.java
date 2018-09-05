@@ -8,10 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.laioffer.tinnews.R;
 import com.laioffer.tinnews.common.ViewModelAdapter;
 import com.laioffer.tinnews.mvp.MvpFragment;
+import com.laioffer.tinnews.save.detail.TitleViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,10 +47,16 @@ public class TinProfileFragment extends MvpFragment<ProfileContract.Presenter> i
 
     @Override
     public void setView() {
+        viewModelAdapter.addViewModel(new TitleViewModel(getString(R.string.setting),
+                R.layout.setting_title_layout));
+
+        viewModelAdapter.addViewModel(new RowTextViewModel(getString(R.string.clear_cache),
+                presenter.getCacheClearListener()));
     }
 
     @Override
     public void onCacheCleared() {
+        Toast.makeText(getContext(), "Cache has been cleared", Toast.LENGTH_SHORT).show();
     }
 
 }
